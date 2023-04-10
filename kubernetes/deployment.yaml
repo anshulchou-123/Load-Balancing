@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: fast-api
+
+  labels:
+
+    app: fast-api
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: fast-api
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: fast-api
+
+    spec:
+      volumes: 
+      - name : volume1
+        hostPath: 
+          path: /anshul
+
+      containers:
+
+      - name: fast-api
+
+        image: anshulchou123/k8-deploying-app:0.0.1
+
+        ports:
+
+        - containerPort: 80
+        volumeMounts:
+        - name: volume1
+          mountPath: "/var/data"
