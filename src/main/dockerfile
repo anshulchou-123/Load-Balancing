@@ -1,0 +1,20 @@
+# Base image
+FROM python:3.9-slim-buster
+# Set the working directory in the container
+WORKDIR /code
+
+# Copy the requirements.txt file and install the dependencies
+COPY ./requirements.txt /code/requirements.txt
+RUN pip  install --no-cache-dir --upgrade -r /code/requirements.txt
+
+# Set environment variables for MySQL database connection
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=anshul@123
+ENV MYSQL_HOST=localhost
+ENV MYSQL_DATABASE=major
+
+# Copy the rest of the application files to the container
+COPY ./python-files /code
+
+# Start the Flask application
+CMD ["python", "get-image-from-db.py"]

@@ -1,0 +1,23 @@
+@RestController
+public class MainController {
+    @GetMapping("/get-image/{id}")
+    public String getImage(@PathVariable int id) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://python-service/get-image/" + id;
+        return restTemplate.getForObject(url, String.class);
+    }
+
+    @GetMapping("/get-image-count")
+    public int getImageCount() {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://python-service/get-image-count";
+        return restTemplate.getForObject(url, int.class);
+    }
+
+    @GetMapping("/get-image-count-by-three")
+    public int getImageCountByThree() {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://python-service/get-image-count-by-three";
+        return restTemplate.getForObject(url, int.class);
+    }
+}
