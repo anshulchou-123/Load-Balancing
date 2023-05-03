@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: get-crowd-density
+spec:
+  selector:
+    app: get-crowd-density
+  ports:
+    - protocol: "TCP"
+      port: 5010
+      targetPort: 5000
+  type: LoadBalancer

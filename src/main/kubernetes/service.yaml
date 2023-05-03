@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: get-image-from-db
+spec:
+  selector:
+    app: get-image-from-db
+  ports:
+    - protocol: "TCP"
+      port: 5010
+      targetPort: 5000
+  type: ExternalName

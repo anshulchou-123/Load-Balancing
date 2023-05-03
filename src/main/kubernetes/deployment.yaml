@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: get-image-from-db
+
+  labels:
+
+    app: get-image-from-db
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: get-image-from-db
+
+  template:
+
+    metadata:
+      name: mypodpod
+
+      labels:
+
+        app: get-image-from-db
+
+    spec:
+      containers:
+
+      - name: get-image-from-db
+
+        image:  anshulchou123/get-image-from-db:0.0.2
+
+        ports:
+
+        - containerPort: 5000

@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: get-crowd-density
+
+  labels:
+
+    app: get-crowd-density
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: get-crowd-density
+
+  template:
+
+    metadata:
+      name: mypodpod
+
+      labels:
+
+        app: get-crowd-density
+
+    spec:
+      containers:
+
+      - name: get-crowd-density
+
+        image:  anshulchou123/get-crowd-density:0.0.5
+
+        ports:
+
+        - containerPort: 5000

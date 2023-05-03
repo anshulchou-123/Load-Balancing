@@ -1,0 +1,32 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: my-ingress
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+# spec:
+#   rules:
+#   - host: example.com
+#     http:
+#       paths:
+#       - path: /get_image_from_db/*
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: my-service
+#             port:
+#               name: http
+#       - path: /get_image_count/*
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: my-service
+#             port:
+#               name: http
+#       - path: /get_image_density/*
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: my-service
+#             port:
+#               name: http

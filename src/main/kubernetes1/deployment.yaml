@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: get-count-of-image
+
+  labels:
+
+    app: get-count-of-image
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: get-count-of-image
+
+  template:
+
+    metadata:
+      name: mypodpod
+
+      labels:
+
+        app: get-count-of-image
+
+    spec:
+      containers:
+
+      - name: get-count-of-image
+
+        image:  anshulchou123/get-count-of-image:0.0.2
+
+        ports:
+
+        - containerPort: 5000
