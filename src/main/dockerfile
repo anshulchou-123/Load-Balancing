@@ -15,6 +15,7 @@ ENV MYSQL_DATABASE=major
 
 # Copy the rest of the application files to the container
 COPY ./python-files /code
+COPY harcascade.xml /code/
 
 # Start the Flask application
-CMD ["python", "get-image-from-db.py"]
+CMD ["python", "get-crowd-density.py"]
